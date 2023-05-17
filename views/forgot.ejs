@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" src="css/forgot.css"
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/forgot.css" />
+
+    <title>login</title>
+  </head>
+  <body>
+    
+    <div id="snow"></div>
+    <div class="container" id="container">
+      <div class="form-container sign-in-container">
+        <form action="hash" method="post">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHkAAAB5CAMAAAAqJH57AAAAY1BMVEX///8AAAD4+PhHR0fa2toICAh0dHSnp6fJyclWVlbv7++5ubn19fWCgoK/v79/f385OTmUlJQoKCizs7Pm5uZCQkLR0dEVFRUeHh6goKBQUFBfX19tbW2IiIgjIyOtra0xMTHFj2gZAAADuklEQVRoge2b7bKiMAyGK4JiQRQEBFH0/q9yV00/UAotaWFn1vffOUP7UJKGNERCfvrpp/9Ynp9sb82xWj3VHpv9NvE959Q8TIts9a2sSMPcIfa+66Ny+u7uBB4nzQCVqUliy1yaDq22s/KU2uTuNbFv7W2xYzPui23lmW+/J94d0lPpU8/zqF+e0sPu+5ItmluuuzNW1zr/XlCc19eqe+G6xIHTzmzZJlSbkIbXrhemCC69yDMV0Zjn0KiQB1wme1p5lm0bao0JZZufJz7xk2w1Pe6LLXvGCf7XHv/qsdebQTJxEBndchR8Gjt8/7HRGn4Qow9G3L7BJmQxttV/0EJh20EbkAW4mfb+oY2M1icLG2s6RY9ukq21ycKrMUHwzmeJdMmlGIIAE5KIVeuRKQ8gCQrMzcs1RuYhE7fipxIjMvcu/ItOtvU4mRt5ulfLuumTWdRtrIAJaXTJLANpbSWwtNUjx+yiKSGzX6EemSV75i8JtQ46ZAqXBBbBhJw1yGzJyJ3sd5WOk9mS1zhwvAo60lgzuzmke3E3/ZSSHMMG2OHAE8gsymJ3lDkZwk2BBJuTczuOPYEMgTNDn0Hjx7pXxU0xYDdiDH15KvVfnmd2/MtcENkrm8UGPUEYuc4OJnAArWcHe2Bmh/U0hXzYc7brWeOC0ImN2RMEccRmMqIpSAowZZWJgtfFaX7y8U1GVrGmCApp/vxk2FTzx05Gdv9Z4Ev19imXsdM9QSEPnur8ZLoYGV4M1fxkKAkc5ydDqctWRcBAkPPYKYIYCY7RNuo+hoKkGltjMxc7eMz/YoCzUzZ/eK7fZPRx0VzXpXIeWi18dsoU6bzhGdBEm+Gk+lb0H3wf6PSfZsNxBG7sW2hyBBOpzk7uyMXI68IZmVVdlaHTGRlidqucxxWZLVkdRjj53C1cYsnsO4E6mefk9KNaiwMzxx5ICsSacagPBaNLluzsoqY/lAdJHubgO8aQs0jk1tbRLmffbgYTMHlX2f5eNfydoLOfVeVRM/HOn+GSQDeS3C2Aa75Ph6/7iGH4BJXt5NVl5MLP6Il1cP4R+Dzmr0AWXQa4VfMVj9d9gFyKIRhbcxtrlLo27CGLVU/3cNHPppHpcrLcTzItpOSdfhIDsuUeGhOy3b4hI7LVXqnxW30827jY47XYH2aqxXriFuwDJIa9jxt7vY+kt9/Tn6XfkyzX40oW7Osly/Uyv9gL9W8/tVTP+ksL9ekD/PnbhKCH6va3CSD4Pcb7Pdgem9ssv8f46aef/mH9ASMkKok1h/gJAAAAAElFTkSuQmCC" width=40% height=auto
+          <h1>reset</h1>
+          
+          <input type="email" name="email" placeholder="Email" />
+          <input type="password" name="password" placeholder="Password" />
+          <br><button>reset</button>
+
+        </form>
+      </div>
+         
+            
+          
+    <script>
+
+
+     
+      function snow() {
+        // TWEAK VALUES
+        let amount = 300; // snowfall thickness
+        let baseSize = 1; // smallest size
+        let sizeModifier = 10; // size variation
+        let baseDuration = 10; // fall speed, increase to slow down
+        let durationModifier = 10; // fall speed variation
+        let lowestOpacity = 0.2; // 0 transparent, 1 opaque
+
+        let container = document.getElementById("snow");
+
+        let i = 0;
+        while (i < amount) {
+          let flake = document.createElement("i");
+          container.appendChild(flake);
+
+          let size = baseSize + Math.random() * sizeModifier;
+          let posX = Math.floor(
+            Math.random() * (window.innerWidth + window.innerWidth * 0.8)
+          );
+          let delay = Math.random() * -20;
+          let duration = Math.random() * durationModifier + baseDuration;
+
+          flake.style.width = size + "px";
+          flake.style.height = size + "px";
+          flake.style.left = posX + "px";
+          flake.style.animationDelay = delay + "s";
+          flake.style.animationDuration = duration + "s";
+          flake.style.opacity =
+            Math.random() * (1 - lowestOpacity) + lowestOpacity;
+
+          i++;
+        }
+      }
+
+      snow();
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-image: url("https://images.unsplash.com/photo-1491002052546-bf38f186af56?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1208&q=80");
+        background-repeat: no-repeat;
+        background-size: cover;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: "Montserrat", sans-serif;
+        height: 100vh;
+        margin: -20px 0 50px;
+      }
+
+      
+      a {
+        color: #333;
+        font-size: 14px;
+        text-decoration: none;
+        margin: 15px 0;
+      }
+
+      button {
+        border-radius: 20px;
+        border: 1px solid #ff4b2b;
+        background-color: #ff4b2b;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      button:active {
+        transform: scale(0.95);
+      }
+
+
+      @keyframes snowfall {
+        0% {
+          transform: translate(-10vw, -50vh);
+        }
+
+        100% {
+          transform: translate(10vw, 100vh);
+        }
+      }
+      #snow i {
+        position: absolute;
+        border-radius: 50%;
+        background-color: white;
+        box-shadow: 0 0 5px white;
+        animation: snowfall 5s linear infinite;
+      }
+    
+
+      form {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 50px;
+        height: 100%;
+        text-align: center;
+      }
+
+      input {
+        background-color: #eee;
+        border: none;
+        padding: 12px 15px;
+        margin: 8px 0;
+        width: 100%;
+      }
+
+      .container {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+          0 10px 10px rgba(0, 0, 0, 0.22);
+        position: relative;
+        overflow: hidden;
+        opacity: 100%;
+        width: 384px;
+        max-width: 100%;
+        min-height: 480px;
+      }
+
+      .form-container {
+        position: absolute;
+        top: 0;
+        height: 100%;
+      }
+
+      .sign-in-container {
+        left: 0;
+        width: 100%;
+        z-index: 2;
+      }
+
+     
+
+   
+    </style>
+  </body>
+</html>

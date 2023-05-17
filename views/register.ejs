@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+
+    <title>login</title>
+  </head>
+  <body>
+    <%=title%>
+
+    <!-- this will take data of title from ./homerouter -->
+    <div id="snow"></div>
+    <div class="container" id="container">
+      <div class="form-container sign-up-container">
+        <form action="/register" method="post">
+          <h1>Create Account</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <span>or use your email for registration</span>
+          <input type="text" name="name" placeholder="Name" />
+          <input type="email" name="email" placeholder="Email" />
+          <div class="password-field">
+            <input
+              type="password"
+              name="password"
+              id="passwordInput2"
+              placeholder="Password"
+            />
+            <span class="toggle-password" onclick="togglePasswordVisibility2()"
+              ><i class="fas fa-eye" style="padding-right: 15px"></i
+            ></span>
+          </div>
+          <button>Sign Up</button>
+        </form>
+      </div>
+      <div class="form-container sign-in-container">
+        <form action="login" method="post">
+          <h1>Sign in</h1>
+          <div class="social-container">
+            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+
+          <span>or use your account</span>
+          <input type="email" name="email" placeholder="Email" />
+          <div class="password-field">
+            <input type="password" name="password" id="passwordInput" placeholder="Password" />
+            <span class="toggle-password" onclick="togglePasswordVisibility()"
+              ><i class="fas fa-eye" style="padding-right: 15px"></i
+            ></span>
+          </div>
+          <a href="forgot">Forgot your password?</a>
+          <button>Sign In</button>
+        </form>
+      </div>
+      <div class="overlay-container">
+        <div class="overlay">
+          <div
+            class="overlay-panel overlay-left"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1542601098-8fc114e148e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80    ');
+            "
+          >
+            <h1>Welcome Back!</h1>
+            <p>
+              To keep connected with us please login with your personal info
+            </p>
+            <button class="ghost" id="signIn">Sign In</button>
+          </div>
+          <div
+            class="overlay-panel overlay-right"
+            style="
+              background-image: url('https://images.unsplash.com/photo-1682734969893-66da05b22a20?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxOXx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60');
+            "
+          >
+            <h1>Hello, Friend!</h1>
+            <p>Enter your personal details and start journey with us</p>
+            <button class="ghost" id="signUp">Sign Up</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("passwordInput");
+        if (passwordInput.type === "password") {
+          passwordInput.type = "text";
+          toggleIcon.setAttribute("src");
+        } else {
+          passwordInput.type = "password";
+          toggleIcon.setAttribute("src");
+        }
+      }
+      function togglePasswordVisibility2() {
+        var passwordInput2 = document.getElementById("passwordInput2");
+        if (passwordInput2.type === "password") {
+          passwordInput2.type = "text";
+          toggleIcon.setAttribute("src");
+        } else {
+          passwordInput2.type = "password";
+          toggleIcon.setAttribute("src");
+        }
+      }
+
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+
+      signUpButton.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+
+      signInButton.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+      function snow() {
+        // TWEAK VALUES
+        let amount = 300; // snowfall thickness
+        let baseSize = 1; // smallest size
+        let sizeModifier = 10; // size variation
+        let baseDuration = 10; // fall speed, increase to slow down
+        let durationModifier = 10; // fall speed variation
+        let lowestOpacity = 0.2; // 0 transparent, 1 opaque
+
+        let container = document.getElementById("snow");
+
+        let i = 0;
+        while (i < amount) {
+          let flake = document.createElement("i");
+          container.appendChild(flake);
+
+          let size = baseSize + Math.random() * sizeModifier;
+          let posX = Math.floor(
+            Math.random() * (window.innerWidth + window.innerWidth * 0.8)
+          );
+          let delay = Math.random() * -20;
+          let duration = Math.random() * durationModifier + baseDuration;
+
+          flake.style.width = size + "px";
+          flake.style.height = size + "px";
+          flake.style.left = posX + "px";
+          flake.style.animationDelay = delay + "s";
+          flake.style.animationDuration = duration + "s";
+          flake.style.opacity =
+            Math.random() * (1 - lowestOpacity) + lowestOpacity;
+
+          i++;
+        }
+      }
+
+      snow();
+    </script>
+  </body>
+</html>
